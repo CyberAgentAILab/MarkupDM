@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Our MarkupDM can generate alternative designs by inferring target spans from the surrounding context.">
+  <meta name="keywords" content="Multimodal Large Language Model, LLM, Graphic Design">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Multimodal Markup Document Models for Graphic Design Completion</title>
+
+  <!-- og -->
+  <meta property="og:title" content="Multimodal Markup Document Models for Graphic Design Completion">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://cyberagentailab.github.io/MarkupDM/">
+  <meta property="og:image" content="https://cyberagentailab.github.io/MarkupDM/static/images/ogp.png">
+  <meta property="og:description" content="Our MarkupDM can generate alternative designs by inferring target spans from the surrounding context.">
+
+  <!-- twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@ktrk115">
+  <meta name="twitter:creator" content="@ktrk115">
+  <meta name="twitter:title" content="Multimodal Markup Document Models for Graphic Design Completion">
+  <meta name="twitter:description" content="Our MarkupDM can generate alternative designs by inferring target spans from the surrounding context.">
+  <meta name="twitter:image" content="https://cyberagentailab.github.io/MarkupDM/static/images/ogp.png">
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+  <style>
+  @font-face {
+    font-family: 'Monaspace Neon';
+    src: url(https://cdn.jsdelivr.net/gh/githubnext/monaspace@v1.000/fonts/webfonts/MonaspaceNeon-Regular.woff) format(woff2);
+  }
+  </style>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Multimodal Markup Document Models for Graphic Design Completion</h1>
+          
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://ktrk115.github.io/" target="_blank">Kotaro Kikuchi</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://ukyh.github.io/" target="_blank">Ukyo Honda</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://naoto0804.github.io/" target="_blank">Naoto Inoue</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://mayu-ot.github.io/" target="_blank">Mayu Otani</a><sup>1</sup>,</span><br/>
+            </span>
+            <span class="author-block">
+              <a href="https://esslab.jp/~ess/en/" target="_blank">Edgar Simo-Serra</a><sup>2</sup>,</span>
+            </span>
+            <span class="author-block">
+              <a href="https://sites.google.com/view/kyamagu" target="_blank">Kota Yamaguchi</a><sup>1</sup></span>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1 </sup>CyberAgent,</span>
+            <span class="author-block"><sup>2 </sup>Waseda University</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2409.19051" target="_blank" 
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./static/markupdm.pdf" target="_blank" 
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/CyberAgentAILab/MarkupDM"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/cyberagent/crello-instruct"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-layer-group"></i>
+                  </span>
+                  <span>Dataset</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4">
+      </video> -->
+      <img id="teaser" src="./static/images/teaser.png"
+      class="interpolation-image"
+      alt="Teaser image."/>
+
+      <h2 class="subtitle has-text-centered">
+        <span class="">
+          We present a multimodal markup document model (MarkupDM) for graphic design documents. Our model can generate alternative designs by inferring target spans, such as attribute values, images, and texts, from the surrounding context.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+      <!-- <div class="column is-full-width"> -->
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            We introduce MarkupDM, a multimodal markup document model that represents graphic design as an interleaved multimodal document consisting of both markup language and images. Unlike existing holistic approaches that rely on an element-by-attribute grid representation, our representation accommodates variable-length elements, type-dependent attributes, and text content. Inspired by fill-in-the-middle training in code generation, we train the model to complete the missing part of a design document from its surrounding context, allowing it to treat various design tasks in a unified manner. Our model also supports image generation by predicting discrete image tokens through a specialized tokenizer with support for image transparency. We evaluate MarkupDM on three tasks, attribute value, image, and text completion, and demonstrate that it can produce plausible designs consistent with the given context. To further illustrate the flexibility of our approach, we evaluate our approach on a new instruction-guided design completion task where our instruction-tuned MarkupDM compares favorably to state-of-the-art image editing models, especially in textual completion. These findings suggest that multimodal language models with our document representation can serve as a versatile foundation for broad design automation.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<!-- Methods section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Method</h2>
+    
+    <div class="column is-full-width">
+      <div class="content has-text-justified">
+        <img src="static/images/method.png">
+        <p>
+          (a) We first train an image tokenizer by reconstructing images resized to a fixed size. When decoding, the image size is given in addition to the image tokens.
+          (b) We then train MarkupDM, a causal multimodal LLM with separate embedding layers and prediction heads for images and text tokens.
+        </p>
+      </div>
+    </div>
+    
+  </div>
+</section>
+<!-- Methods section -->
+
+<!-- Dataset section -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Crello-Instruct Dataset</h2>
+    
+    <div class="column is-full-width">
+      <div class="content has-text-justified">
+        <img src="static/images/dataset.png" class="mb-4">
+        <p>
+          We extend the Crello dataset to create <strong>Crello-Instruct</strong>, comprising <strong>125K triplets</strong> of instructions, partial designs, and completed designs for instruction-guided graphic design completion. The dataset is generated by removing elements from templates and creating editing instructions using multimodal LLMs, with quality filtering via GPT-4o mini. Each image element is annotated with captions to help models understand both semantically meaningful and decorative content.
+        </p>
+      </div>
+    </div>
+    
+  </div>
+</section>
+<!-- Dataset section -->
+
+
+<!-- Results -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered"> Results </h2>
+
+    <!-- Text Completion -->
+    <div class="column is-full-width">
+
+      <div class="columns is-centered has-text-centered is-variable">
+        <div class="column is-full-width">
+          <h2 class="title is-4">Text Completion</h2>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered is-variable">
+        <div class="column is-full-width">
+          <img src="static/images/text_completion_result.png" width="100%" class="shadow-style">
+          <p>
+            Each pair shows the predicted completion and the original design from left to right or top to bottom. The green boxes indicate the target text and some of them are zoomed in for better visibility. Note that the rightmost example shows a failure case where the generated text visually conflicts with other elements.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Text Completion -->
+
+    <!-- Image Completion -->
+    <div class="column is-full-width">
+
+      <div class="columns is-centered has-text-centered is-variable">
+        <div class="column is-full-width">
+          <h2 class="title is-4">Image Completion</h2>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered is-variable">
+        <div class="column is-full-width">
+          <img src="static/images/image_completion_result.png" width="100%" class="shadow-style">
+          <p>
+            Each triplet shows the input, the predicted completion, and the original design from left to right or top to bottom. The gray squares indicate the target image elements to be completed. The rightmost example illustrates the model's difficulty in producing recognizable main objects.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Image Completion -->
+
+    <!-- Instruction-Guided Completion -->
+    <div class="column is-full-width">
+
+      <div class="columns is-centered has-text-centered is-variable">
+        <div class="column is-full-width">
+          <h2 class="title is-4">Instruction-Guided Completion</h2>
+        </div>
+      </div>
+
+      <div class="columns is-centered has-text-centered is-variable">
+        <div class="column is-full-width">
+          <img src="static/images/instruction_guided_result.png" width="100%" class="shadow-style">
+          <p>
+            Qualitative comparison for instruction-guided graphic design completion. Our instruction-tuned MarkupDM achieves the best MSE scores by only adding missing elements rather than altering existing ones, while Gemini 2.0 Flash sometimes applies overly aggressive edits.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Instruction-Guided Completion -->
+
+  </div>
+</section>
+<!-- Results -->
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code style="font-family: 'Monaspace Neon', monospace;">@inproceedings{Kikuchi2025,
+  title     = {Multimodal Markup Document Models for Graphic Design Completion},
+  author    = {Kotaro Kikuchi and Ukyo Honda and Naoto Inoue and Mayu Otani and Edgar Simo-Serra and Kota Yamaguchi},
+  booktitle = {ACM International Conference on Multimedia},
+  year      = {2025},
+  doi       = {10.1145/3746027.3755420}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://arxiv.org/abs/2409.19051">
+        <i class="ai ai-arxiv"></i>
+      </a>
+      <a class="icon-link"
+         href="./static/markupdm.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/ktrk115" class="external-link">
+        <i class="fab fa-github"></i>
+      </a>
+      <a class="icon-link"
+         href="https://huggingface.co/datasets/cyberagent/crello-instruct">
+        <i class="fas fa-layer-group"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website adopts the template from the <a href="https://nerfies.github.io/">Nerfies</a> project
+            and is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
