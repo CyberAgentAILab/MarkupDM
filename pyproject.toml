@@ -1,0 +1,32 @@
+[project]
+name = "markupdm"
+version = "1.0.0"
+description = "A framework for training and evaluating multimodal markupdm document models"
+authors = [
+    { name = "Kotaro Kikuchi", email = "kikuchi_kotaro_xa@cyberagent.co.jp" },
+]
+requires-python = ">=3.12"
+dependencies = [
+    "datasets>=4.4.2",
+    "einops>=0.8.1",
+    "huggingface-hub>=0.35.3",
+    "latent-diffusion @ git+https://github.com/ktrk115/latent-diffusion.git@23d5a49",
+    "omegaconf>=2.3.0",
+    "pillow>=11.3.0",
+    "pytorch-lightning<2.0.0",
+    "random-fourier-features-pytorch>=1.0.1",
+    "svg-py>=1.10.0",
+    "taming-transformers @ git+https://github.com/illeatmyhat/taming-transformers.git@aeabaa3",
+    "transformers>=4.57.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ipython>=8.30.0",
+]
+
+[tool.setuptools]
+py-modules = []
+
+[tool.ruff.lint]
+unfixable = ["F401"]
